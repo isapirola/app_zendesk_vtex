@@ -10,13 +10,15 @@ body {
 
 p {
     margin: 0;
+    word-break: break-all;
 }
 
-#container {
+#header {
     padding: 0px 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 50px;
 }
 
 #title {
@@ -53,4 +55,27 @@ input:focus {
     color: #b11e53;
     border-color: #b11e53;
     cursor: pointer;
+}
+
+#data {
+    display: flex;
+    flex-direction: row;
+    margin: 0px 200px;
+    height: 400px;
+}
+
+#client-data {
+    width: 450px;
+    padding: 20px 30px;
+    border: 1px solid green;
+}
+
+#client-data-item {
+    margin: 10px 0px;
+}
+
+#client-order-data {
+    width: 100%;
+    padding: 20px 30px;
+    border: 1px solid green;
 }

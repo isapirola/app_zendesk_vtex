@@ -12,15 +12,44 @@
 
 <body ng-app="app" ng-controller="AppController">
 
-  <div id="container">
+  <div id="header">
 
-    <h2 id="title">Consulta CNPJ</h1>
-      <form id="form-cpf" ng-submit="pesquisarCliente()">
-        <div id="input-and-button">
-          <input type="text" ng-model="cpf" id="cpf" required />
-          <button type="submit" id="search">Pesquisar</button>
-        </div>
-      </form>
+    <h2 id="title">Consulta VTEX</h2>
+    <form id="form-cpf" ng-submit="pesquisarCliente()">
+      <div id="input-and-button">
+        <input type="text" ng-model="cpf" id="cpf" required />
+        <button type="submit" id="search">Pesquisar</button>
+      </div>
+    </form>
+
+  </div>
+
+  <div ng-if="clientData" id="data">
+
+    <div id="client-data">
+      <h3>Dados do Cliente</h3>
+      <p id="client-data-item"><strong>Nome: </strong>{{clientData.nome}}</p>
+      <p id="client-data-item"><strong>E-mail: </strong>{{clientData.email}}</p>
+      <p id="client-data-item"><strong>CPF: </strong>{{clientData.cpf}}</p>
+      <p id="client-data-item"><strong>Telefone: </strong>{{clientData.celular}}</p>
+    </div>
+
+    <div id="client-order-data">
+      <h3>Pedidos</h3>
+      <table id="tabela-pedidos">
+        <thead>
+          <tr>
+            <th>ID do Pedido</th>
+            <th>Data</th>
+            <th>Status</th>
+            <th>Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Linhas da tabela serão inseridas aqui dinamicamente -->
+        </tbody>
+      </table>
+    </div>
 
   </div>
 
