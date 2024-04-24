@@ -54,6 +54,11 @@ app.controller("AppController", [
                 // Criar células para cada propriedade do objeto
                 const id = document.createElement("td");
                 id.textContent = pedido.id_vtex;
+                id.setAttribute("class", "id-pedido");
+                id.setAttribute("ng-model", "id_pedido");
+                id.addEventListener("click", function () {
+                    clickPedido(pedido.id_vtex);
+                });
                 tr.appendChild(id);
 
                 const data = document.createElement("td");
@@ -70,6 +75,11 @@ app.controller("AppController", [
 
                 tbody.appendChild(tr);
             });
+        }
+
+        function clickPedido(id) {
+            // Fazer console.log do ID do pedido
+            console.log("ID do pedido clicado:", id);
         }
     },
 ]);
