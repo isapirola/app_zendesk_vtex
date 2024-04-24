@@ -5,11 +5,30 @@ app.service("zendeskService", [
             var deferred = $q.defer();
             client
                 .request({
-                    url: `https://nOe6xtbvqa.execute-api.us-east-1.amazonaws.com/default/flordemaio-zendesk-mock?cpf=${cpf}`,
+                    url: `https://n0e6xtbvqa.execute-api.us-east-1.amazonaws.com/default/flordemaio-zendesk-mock?cpf=${cpf}`,
                     type: "GET",
                     headers: {
                         "Content-Type": "application/json",
-                        "x-api-key": "JBjAVMqtRovzYJ8iRJm559U5mLn9Hw17X5iVCvm9",
+                    },
+                })
+                .then(function (response) {
+                    deferred.resolve(response);
+                })
+                .catch(function (error) {
+                    deferred.reject(error);
+                });
+
+            return deferred.promise;
+        };
+
+        this.getOrderData = function (idPedido) {
+            var deferred = $q.defer();
+            client
+                .request({
+                    url: `https://v4c1btaq78.execute-api.us-east-1.amazonaws.com/default/allShopping?idShopping=${idPedido}`,
+                    type: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
                     },
                 })
                 .then(function (response) {
