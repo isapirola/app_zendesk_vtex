@@ -12,6 +12,18 @@
 
 <body ng-app="app" ng-controller="AppController">
 
+  <div id="container">
+
+    <h2 id="title">Consulta CNPJ</h1>
+      <form id="form-cpf" ng-submit="pesquisarCliente()">
+        <div id="input-and-button">
+          <input type="text" ng-model="cpf" id="cpf" required />
+          <button type="submit" id="search">Pesquisar</button>
+        </div>
+      </form>
+
+  </div>
+
   <script src="app.js" type="text/javascript"></script>
   <script src="controllers/app.controller.js" type="text/javascript"></script>
   <script src="service/zendesk.service.js"></script>
