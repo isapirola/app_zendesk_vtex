@@ -65,7 +65,7 @@ input:focus {
 }
 
 #client-data {
-    width: 450px;
+    width: 500px;
     padding: 20px 30px;
     border: 1px solid green;
 }
@@ -78,4 +78,34 @@ input:focus {
     width: 100%;
     padding: 20px 30px;
     border: 1px solid green;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: rgb(228 240 245);
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+    background-color: #ddd;
+}
+
+th,
+td {
+    text-align: left;
+    border: 1px solid #409618;
+    padding: 12px 6px;
+}
+
+.id-pedido:hover {
+    cursor: pointer;
+    color: red;
+    text-decoration: underline;
 }
