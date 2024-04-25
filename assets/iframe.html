@@ -15,11 +15,12 @@
   <div id="header">
 
     <h2 id="title">Consulta VTEX</h2>
-    <form id="form-cpf" ng-submit="pesquisarCliente()">
+    <form id="form-cpf" name="formCpf" ng-submit="pesquisarCliente()">
       <div id="input-and-button">
-        <input type="text" ng-model="cpf" id="cpf" required />
+        <input type="text" ng-model="cpf" id="cpf" required ng-pattern="/^\d{11}$/" />
         <button type="submit" id="search">Pesquisar</button>
       </div>
+      <span ng-show="formCpf.$error.pattern && formCpf.$submitted">O CPF deve conter exatamente 11 dígitos numéricos.</span>
     </form>
 
   </div>
