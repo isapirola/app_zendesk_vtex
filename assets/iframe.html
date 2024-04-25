@@ -14,7 +14,7 @@
 
   <div id="header">
 
-    <h2 id="title">Consulta VTEX</h2>
+    <h1 id="title">Consulta VTEX</h1>
     <form id="form-cpf" name="formCpf" ng-submit="pesquisarCliente()">
       <div id="input-and-button">
         <input type="text" ng-model="cpf" id="cpf" required ng-pattern="/^\d{11}$/" />
@@ -28,7 +28,7 @@
   <div ng-if="clientData" id="data">
 
     <div id="client-data">
-      <h3>Dados do Cliente</h3>
+      <h2 class="title2">Dados do Cliente</h2>
       <p id="client-data-item"><strong>Nome: </strong>{{clientData.nome}}</p>
       <p id="client-data-item"><strong>E-mail: </strong>{{clientData.email}}</p>
       <p id="client-data-item"><strong>CPF: </strong>{{clientData.cpf}}</p>
@@ -36,7 +36,7 @@
     </div>
 
     <div id="client-order-data">
-      <h3>Pedidos</h3>
+      <h2 class="title2">Pedidos</h2>
       <table id="tabela-pedidos">
         <thead>
           <tr>
