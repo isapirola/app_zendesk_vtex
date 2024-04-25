@@ -67,6 +67,10 @@ input:focus {
     cursor: pointer;
 }
 
+.erro-cpf {
+    color: red;
+}
+
 #data {
     display: flex;
     flex-direction: row;
