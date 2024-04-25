@@ -4,7 +4,6 @@ app.controller("AppController", [
 
     function ($scope, zendeskService) {
         var idsPedidos;
-        var pedidos;
 
         $scope.pesquisarCliente = function () {
             zendeskService
@@ -21,7 +20,6 @@ app.controller("AppController", [
         };
 
         function getAllOrders(idsPedidos) {
-            let pedidos = []; // Inicializa a array de pedidos
             let promises = []; // Array para armazenar as promessas
 
             idsPedidos.forEach((idPedido) => {
@@ -53,16 +51,16 @@ app.controller("AppController", [
 
                 // Criar células para cada propriedade do objeto
                 const id = document.createElement("td");
-                id.textContent = pedido.id_vtex;
+                id.textContent = pedido.number;
                 id.setAttribute("class", "id-pedido");
                 id.setAttribute("ng-model", "id_pedido");
                 id.addEventListener("click", function () {
-                    clickPedido(pedido.id_vtex);
+                    clickPedido(pedido);
                 });
                 tr.appendChild(id);
 
                 const data = document.createElement("td");
-                data.textContent = pedido.data;
+                data.textContent = pedido.data.slice(0, 10);
                 tr.appendChild(data);
 
                 const status = document.createElement("td");
@@ -77,9 +75,18 @@ app.controller("AppController", [
             });
         }
 
-        function clickPedido(id) {
-            // Fazer console.log do ID do pedido
-            console.log("ID do pedido clicado:", id);
+        function clickPedido(pedido) {
+            $scope.$apply(function () {
+                $scope.orderData = pedido;
+            });
+            var modal = document.getElementById("modalPedido");
+            modal.style.display = "block";
+
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            };
         }
     },
 ]);

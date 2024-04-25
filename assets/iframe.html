@@ -39,7 +39,7 @@
       <table id="tabela-pedidos">
         <thead>
           <tr>
-            <th>ID do Pedido</th>
+            <th>Nᵒ do Pedido</th>
             <th>Data</th>
             <th>Status</th>
             <th>Valor</th>
@@ -51,6 +51,15 @@
       </table>
     </div>
 
+  </div>
+
+  <div id="modalPedido" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Pedido #{{ orderData.number }}</h3>
+      </div>
+      <p>{{ orderData.value }}</p>
+    </div>
   </div>
 
   <script src="app.js" type="text/javascript"></script>
