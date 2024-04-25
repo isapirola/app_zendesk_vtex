@@ -59,7 +59,40 @@
         <span class="close">&times;</span>
         <h3>Pedido #{{ orderData.number }}</h3>
       </div>
-      <p>{{ orderData.value }}</p>
+      <div class="modal-body">
+        <table>
+          <tbody>
+            <tr>
+              <th>ID</th>
+              <td>{{ orderData.id_vtex }}</td>
+            </tr>
+            <tr>
+              <th>Data</th>
+              <td>{{ orderData.data }}</td>
+            </tr>
+            <tr>
+              <th>Status</th>
+              <td>{{ orderData.status }}</td>
+            </tr>
+            <tr>
+              <th>Transportadora</th>
+              <td>{{ orderData.trasnportadora }}</td>
+            </tr>
+            <tr>
+              <th>Origem da compra</th>
+              <td>{{ orderData.source }}</td>
+            </tr>
+            <tr>
+              <th>Valor</th>
+              <td>{{ orderData.value }}</td>
+            </tr>
+            <tr>
+              <th>Comentário do cliente</th>
+              <td>{{ orderData.description }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 
