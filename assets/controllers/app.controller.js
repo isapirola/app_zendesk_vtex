@@ -3,6 +3,7 @@ app.controller("AppController", [
     "zendeskService",
 
     function ($scope, zendeskService) {
+        $scope.pedidos = [];
         var idsPedidos;
 
         $scope.validarCPF = function (cpf) {
@@ -55,7 +56,9 @@ app.controller("AppController", [
             Promise.all(promises)
                 .then((responses) => {
                     // As promessas foram resolvidas, agora podemos adicionar os dados à tabela
-                    criarLinhasTabela(responses);
+                    $scope.$apply(() => {
+                        $scope.pedidos = responses;
+                    });
                 })
                 .catch(function (error) {
                     // Manipular erros aqui
@@ -63,46 +66,9 @@ app.controller("AppController", [
                 });
         }
 
-        function criarLinhasTabela(pedidos) {
-            const tbody = document.querySelector("#tabela-pedidos tbody");
+        $scope.clickPedido = function (pedido) {
+            $scope.orderData = pedido;
 
-            // Limpar o conteúdo atual da tabela
-            tbody.innerHTML = "";
-
-            // Iterar sobre os dados e criar uma linha para cada item
-            pedidos.forEach((pedido) => {
-                const tr = document.createElement("tr");
-
-                // Criar células para cada propriedade do objeto
-                const id = document.createElement("td");
-                id.textContent = pedido.number;
-                id.setAttribute("class", "id-pedido");
-                id.setAttribute("ng-model", "id_pedido");
-                id.addEventListener("click", function () {
-                    clickPedido(pedido);
-                });
-                tr.appendChild(id);
-
-                const data = document.createElement("td");
-                data.textContent = pedido.data.slice(0, 10);
-                tr.appendChild(data);
-
-                const status = document.createElement("td");
-                status.textContent = pedido.status;
-                tr.appendChild(status);
-
-                const valor = document.createElement("td");
-                valor.textContent = pedido.value;
-                tr.appendChild(valor);
-
-                tbody.appendChild(tr);
-            });
-        }
-
-        function clickPedido(pedido) {
-            $scope.$apply(function () {
-                $scope.orderData = pedido;
-            });
             var span = document.getElementsByClassName("close")[0];
             var modal = document.getElementById("modalPedido");
 
@@ -116,6 +82,6 @@ app.controller("AppController", [
                     modal.style.display = "none";
                 }
             };
-        }
+        };
     },
 ]);

@@ -48,7 +48,12 @@
           </tr>
         </thead>
         <tbody>
-          <!-- Linhas da tabela serão inseridas aqui dinamicamente -->
+          <tr ng-repeat="pedido in pedidos">
+            <td class="id-pedido" ng-click="clickPedido(pedido)">{{pedido.number}}</td>
+            <td>{{pedido.data.slice(0, 10)}}</td>
+            <td>{{pedido.status}}</td>
+            <td>{{pedido.value}}</td>
+          </tr>
         </tbody>
       </table>
     </div>
